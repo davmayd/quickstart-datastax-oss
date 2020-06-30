@@ -1,1 +1,6 @@
-// placeholder
+
+=== Launch into an new VPC
+include::datastax-oss-master-new-vpc.template.adoc[]
+
+=== Launch into an existing VPC
+include::datastax-oss-existing-vpc.template.adoc[]

@@ -1,1 +1,0 @@
-quikstart-datastax-oss
