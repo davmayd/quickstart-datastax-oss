@@ -2,8 +2,8 @@
 . VPC Network Configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default Value|Description|Availability Zones
-(`AvailabilityZones`)|`**__Requires Input__**`|Select 3 AZs from this List of Availability Zones to use for the subnets in the VPC. The logical order of your selections is preserved.|VPC CIDR
+|Parameter label (name) |Default value|Description|Availability Zones
+(`AvailabilityZones`)|`**__Requires input__**`|Select 3 AZs from this List of Availability Zones to use for the subnets in the VPC. The logical order of your selections is preserved.|VPC CIDR
 (`VPCCIDR`)|`10.0.0.0/16`|CIDR block for the VPC|Private subnet 1 CIDR
 (`PrivateSubnet1CIDR`)|`10.0.0.0/19`|CIDR block for private subnet 1 located in Availability Zone 1|Private subnet 2 CIDR
 (`PrivateSubnet2CIDR`)|`10.0.32.0/19`|CIDR block for private subnet 2 located in Availability Zone 2|Private subnet 3 CIDR
@@ -15,7 +15,7 @@
 .Cassandra Cluster/Nodes Configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default Value|Description|Apache Cassandra version to install.
+|Parameter label (name) |Default value|Description|Apache Cassandra version to install.
 (`OSSVersion`)|`4.0`|Apache Cassandra version to install.|Choose from "1 - 32" for number of cassandra nodes to install.
 (`ClusterSize`)|`3`|Number of Cassandra nodes to create.|The name of the Apache Cassandra cluster.
 (`ClusterName`)|`Cassandra-Cluster`|The name of the Cassandra Cluster.|Name of the Apache Cassandra data center.
@@ -26,15 +26,15 @@
 .Cassandra Cluster Access
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default Value|Description|Create the Apache Cassandra Cluster nodes in public subnet.
+|Parameter label (name) |Default value|Description|Create the Apache Cassandra Cluster nodes in public subnet.
 (`CreateClusterWithPublicIP`)|`false`|Whether to create the Cassandra Cluster nodes in public subnet|Permitted CIDR block for remote access.
-(`RemoteAccessCIDR`)|`**__Requires Input__**`|Allowed CIDR block for external SSH access and for application access to the cassandra cluster, if the cluster is created with CreateClusterWithPublicIP=true|AWS Key Pair
-(`KeyPairName`)|`**__Requires Input__**`|Select an existing KeyPair.
+(`RemoteAccessCIDR`)|`**__Requires input__**`|Allowed CIDR block for external SSH access and for application access to the cassandra cluster, if the cluster is created with CreateClusterWithPublicIP=true|AWS Key Pair
+(`KeyPairName`)|`**__Requires input__**`|Select an existing KeyPair.
 |===
 .DevOps/Bastion Configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default Value|Description|Whether to create the jumpbox.
+|Parameter label (name) |Default value|Description|Whether to create the jumpbox.
 (`CreateDevInstance`)|`true`|Whether to create the jumpbox|EC2 instance type for the DevOps/Bastion Host.
 (`DevInstanceType`)|`t3.medium`|EC2 instance type of the DevOps Instance|The EBS volume size, in GiB, for the DevOps Host.
 (`DevVolumeSize`)|`16`|EBS volume size of the DevOps Instance in GB
@@ -42,7 +42,7 @@
 .AWS Quick Start Configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default Value|Description|S3 bucket where the templates are stored.
+|Parameter label (name) |Default value|Description|S3 bucket where the templates are stored.
 (`S3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|S3 Key Prefix
 (`S3KeyPrefix`)|`quickstart-datastax-oss`|S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).
 |===
