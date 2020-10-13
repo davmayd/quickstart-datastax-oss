@@ -1,4 +1,4 @@
-:quickstart-project-name: quickstart-documentation-base
+:quickstart-project-name: quickstart-datastax-oss
 :partner-product-name: Apache Cassandra
 :partner-company-name: DataStax
 :doc-month: October
