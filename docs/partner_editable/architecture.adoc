@@ -1,30 +1,30 @@
 Deploying this Quick Start for a new virtual private cloud (VPC) with
-*default parameters* builds the following _{partner-product-name}_ environment in the
+default parameters builds the following {partner-product-name} environment in the
 AWS Cloud.
 
 // Replace this example diagram with your own. Send us your source PowerPoint file. Be sure to follow our guidelines here : http://(we should include these points on our contributors giude)
 [#architecture1]
-.Quick Start architecture for _{partner-product-name}_ on AWS
-[link=images/architecture_diagram.png]
-image::../images/architecture_diagram.png[Architecture]
+.Quick Start architecture for {partner-product-name} on AWS
+image::../images/datastax-architecture-diagram.png[Architecture]
 
 As shown in Figure 1, the Quick Start sets up the following:
 
-* A highly available architecture that spans two Availability Zones.*
-* A VPC configured with public and private subnets, according to AWS
-best practices, to provide you with your own virtual network on AWS.*
+* A highly available architecture that spans three Availability Zones.*
 
-In the public subnets:
+* A virtual private network (VPN) configured with public and private subnets, according to AWS best practices, to provide you with your own virtual network on AWS.*
 
-* Managed network address translation (NAT) gateways to allow outbound
-internet access for resources in the private subnets.*
-* A Linux bastion host in an Auto Scaling group to allow inbound Secure
-Shell (SSH) access to EC2 instances in public and private subnets.*
+* In the public subnets:
+** Managed network address translation (NAT) gateways to allow outbound internet access for resources in the private subnets.*
+** A DevOps jump host node where you can use tools to help manage the cluster.
 
-In the private subnets:
-// Add bullet points for any additional components that are included in the deployment. Make sure that the additional components are also represented in the architecture diagram.
-* <describe any additional components>.
+* In the private subnets:
 
-*The template that deploys the Quick Start into an existing VPC skips
-the components marked by asterisks and prompts you for your existing VPC
-configuration.
+** Amazon Elastic Compute Cloud (Amazon EC2) seed nodes used to bootstrap the gossip process for new nodes joining a cluster. These nodes are the inital Amazon EC2 instances that are outside of the Amazon EC2 Auto Scaling group that assists in bootstraping the cluster.
+
+** Cassandra non-seed nodes (starting with the fourth node onwards) that are part of the Amazon EC2 Auto Scaling group. Note that making every node a seed node is not recommended because of increased maintenance and reduced gossip performance. Gossip optimization is not critical, but a small seed list is recommended nonetheless.
+
+** Amazon EC2 Auto Scaling group used for scaling {partner-product-name-short} nodes in the private subnets based on workload demand.
+
+* An Amazon Simple Storage Service (Amazon S3) bucket for storing the CloudFormation templates and scripts. 
+
+*The template that deploys the Quick Start into an existing VPC skips the components marked by asterisks and prompts you for your existing VPC configuration.
