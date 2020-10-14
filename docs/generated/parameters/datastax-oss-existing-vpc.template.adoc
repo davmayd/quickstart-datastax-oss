@@ -1,48 +1,48 @@
 
-. VPC Network Configuration
+.VPC network configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
 |Parameter label (name) |Default value|Description|Existing ID of the VPC
-(`VPCID`)|`**__Requires input__**`|Id of existing VPC|VPC CIDR
-(`VPCCIDR`)|`10.0.0.0/16`|CIDR block for the VPC|**NO_LABEL**
-(`PrivateSubnet1ID`)|`**__Requires input__**`|Private subnet id 1|**NO_LABEL**
-(`PrivateSubnet2ID`)|`**__Requires input__**`|Private subnet id 2|**NO_LABEL**
-(`PrivateSubnet3ID`)|`**__Requires input__**`|Private subnet id 3|**NO_LABEL**
-(`PublicSubnet1ID`)|`**__Requires input__**`|Public subnet id 1|**NO_LABEL**
-(`PublicSubnet2ID`)|`**__Requires input__**`|Public subnet id 2|**NO_LABEL**
-(`PublicSubnet3ID`)|`**__Requires input__**`|Public subnet id 3
+(`VPCID`)|`**__Requires input__**`|ID of existing VPC.|VPC CIDR
+(`VPCCIDR`)|`10.0.0.0/16`|CIDR block for the VPC.|Private subnet 1 ID
+(`PrivateSubnet1ID`)|`**__Requires input__**`|Private subnet ID 1.|Private subnet 2 ID
+(`PrivateSubnet2ID`)|`**__Requires input__**`|Private subnet ID 2.|Private subnet 2 ID
+(`PrivateSubnet3ID`)|`**__Requires input__**`|Private subnet ID 3.|Public subnet 1 ID
+(`PublicSubnet1ID`)|`**__Requires input__**`|Public subnet ID 1.|Public subnet 2 ID
+(`PublicSubnet2ID`)|`**__Requires input__**`|Public subnet ID 2.|Public subnet 3 ID
+(`PublicSubnet3ID`)|`**__Requires input__**`|Public subnet ID 3.
 |===
-.Cassandra Cluster/Nodes Configuration
+.Cassandra cluster/nodes configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default value|Description|Apache Cassandra version to install.
-(`OSSVersion`)|`4.0`|Apache Cassandra version to install.|Choose from "1 - 32" for number of cassandra nodes to install.
-(`ClusterSize`)|`3`|Number of Cassandra nodes to create.|The name of the Apache Cassandra cluster.
-(`ClusterName`)|`Cassandra-Cluster`|The name of the Cluster.|Name of the Apache Cassandra data center.
-(`DatacenterName`)|`OSS-dc0`|The name of the Datacenter.|EC2 instance type for Apache Cassandra nodes.
-(`NodeInstanceType`)|`m4.large`|EC2 instance type of each node in the Cassandra Cluster|EBS volume size of the Apache Cassandra Cluster Nodes in GB.
-(`NodeVolumeSize`)|`512`|EBS volume size of each node in the Cassandra Cluster in GB
+|Parameter label (name) |Default value|Description|Apache Cassandra version to install
+(`OSSVersion`)|`4.0`|Apache Cassandra version to install.|Choose from "1 - 32" for number of Cassandra nodes to install
+(`ClusterSize`)|`3`|Number of Cassandra nodes to create.|The name of the Cassandra cluster
+(`ClusterName`)|`Cassandra-Cluster`|Name of the cluster.|Name of the Cassandra data center
+(`DatacenterName`)|`OSS-dc0`|Name of the data center.|Amazon EC2 instance type for Cassandra nodes
+(`NodeInstanceType`)|`m4.large`|Amazon EC2 instance type of each node in the Cassandra cluster.|Amazon EBS volume size of the Cassandra cluster nodes in GB
+(`NodeVolumeSize`)|`512`|Amazon EBS volume size of each node in the Cassandra cluster in GB.
 |===
-.Cassandra Cluster Access
+.Cassandra cluster access
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default value|Description|Create the Apache Cassandra Cluster nodes in public subnet.
-(`CreateClusterWithPublicIP`)|`false`|Whether to create the Cassandra Cluster nodes in public subnet|Permitted CIDR block for remote access.
-(`RemoteAccessCIDR`)|`**__Requires input__**`|Allowed CIDR block for external SSH access and for application access to the cluster if the cluster is created with CreateClusterWithPublicIP=true|AWS Key Pair
-(`KeyPairName`)|`**__Requires input__**`|Select an existing KeyPair.
+|Parameter label (name) |Default value|Description|Create the Cassandra cluster nodes in public subnet
+(`CreateClusterWithPublicIP`)|`false`|Whether to create the Cassandra cluster nodes in the public subnet.|Permitted CIDR block for remote access
+(`RemoteAccessCIDR`)|`**__Requires input__**`|Allowed CIDR block for external SSH access and for application access to the cluster if the cluster is created with CreateClusterWithPublicIP=true.|AWS key pair
+(`KeyPairName`)|`**__Requires input__**`|Select an existing key pair.
 |===
-.DevOps/Bastion Configuration
+.DevOps/bastion configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default value|Description|Whether to create the jumpbox.
-(`CreateDevInstance`)|`true`|Whether to create the jumpbox|EC2 instance type for the DevOps/Bastion Host.
-(`DevInstanceType`)|`t3.medium`|EC2 instance type of the DevOps Instance|The EBS volume size, in GiB, for the DevOps Host.
-(`DevVolumeSize`)|`16`|EBS volume size of the DevOps Instance in GB
+|Parameter label (name) |Default value|Description|Whether to create the jump box
+(`CreateDevInstance`)|`true`|Choose whether to create the jump box.|Amazon EC2 instance type for the DevOps/bastion host
+(`DevInstanceType`)|`t3.medium`|Amazon EC2 instance type of the DevOps instance.|The Amazon EBS volume size in GB for the DevOps host
+(`DevVolumeSize`)|`16`|Amazon EBS volume size of the DevOps instance in GB.
 |===
-.AWS Quick Start Configuration
+.AWS Quick Start configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
-|Parameter label (name) |Default value|Description|S3 bucket where the templates are stored.
-(`S3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|S3 Key Prefix
+|Parameter label (name) |Default value|Description|Amazon S3 bucket where the templates are stored
+(`S3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|Amazon S3 key prefix
 (`S3KeyPrefix`)|`quickstart-datastax-oss`|S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).
 |===

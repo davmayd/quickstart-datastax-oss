@@ -805,8 +805,8 @@ p.footer-text a{color:#d7d8d8}
 <ul class="sectlevel2">
 <li><a href="#_sign_in_to_your_aws_account">Sign in to your AWS account</a></li>
 <li><a href="#_launch_the_quick_start">Launch the Quick Start</a></li>
-<li><a href="#_parameters_for_launching_to_a_new_vpc">Parameters for launching to a new VPC</a></li>
-<li><a href="#_parameters_for_launching_to_an_existing_vpc">Parameters for launching to an existing VPC</a></li>
+<li><a href="#_parameters_for_launching_into_an_existing_vpc">Parameters for launching into an existing VPC</a></li>
+<li><a href="#_parameters_for_launching_into_a_new_vpc">Parameters for launching into a new VPC</a></li>
 </ul>
 </li>
 <li><a href="#_post_deployment_steps">Post deployment steps</a></li>
@@ -827,13 +827,13 @@ p.footer-text a{color:#d7d8d8}
 <h2 id="_quick_start_reference_deployment" class="discrete text-left text-center">Quick Start Reference Deployment</h2>
 <div class="imageblock text-center">
 <div class="content">
-<img src="https://aws-quickstart.s3.amazonaws.com/quickstart-documentation-base/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
+<img src="https://aws-quickstart.s3.amazonaws.com/quickstart-datastax-oss/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="QS" width="80" height="80">
 </div>
 </div>
 <div class="paragraph text-center">
 <p><strong>October, 2020</strong><br>
-<em>Raks K, DataStax</em><br>
-<em>Jim Smith, AWS Global Partner Solutions Architect, and Joe Jones, Technical Product Manager, AWS</em></p>
+<em>Raks Krishna, DataStax</em><br>
+<em>Tony Vattathil, AWS Global Partner Solutions Architect</em></p>
 </div>
 <div class="admonitionblock tip text-left">
 <table>
@@ -842,7 +842,7 @@ p.footer-text a{color:#d7d8d8}
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Visit our <a href="https://github.com/aws-quickstart/quickstart-documentation-base" target="_blank" rel="noopener">GitHub repository</a> for source files and to post feedback,
+Visit our <a href="https://github.com/aws-quickstart/quickstart-datastax-oss" target="_blank" rel="noopener">GitHub repository</a> for source files and to post feedback,
 report bugs, or submit feature ideas for this Quick Start.
 </td>
 </tr>
@@ -857,13 +857,13 @@ report bugs, or submit feature ideas for this Quick Start.
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://aws.amazon.com/quickstart/">Quick Starts</a> are automated reference deployments that use AWS CloudFormation templates to launch, configure, and run the AWS compute, network, storage, and other services required to deploy a specific workload on AWS. This Quick Start is for users who want to deploy an Apache Cassandra cluster for development or testing purposes in about 20 minutes.</p>
+<p>Quick Starts are automated reference deployments that use AWS CloudFormation templates to launch, configure, and run the AWS compute, network, storage, and other services required to deploy a specific workload on AWS. This Quick Start is for users who want to deploy an Apache Cassandra cluster for development or testing purposes in about 20 minutes.</p>
 </div>
 <div class="paragraph">
 <p>As Cassandra adoption grows within your organization, so could the challenges involved with using, maintaining, and supporting the technology. These challenges can add considerable cost, complexity, and administrative burden. Cassandra addresses these challenges by streamlining operations and controlling costs for all your Cassandra workloads.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start reference deployment guide provides step-by-step instructions for deploying Apache Cassandra 4.0-beta1 on the AWS Cloud.</p>
+<p>This Quick Start reference deployment guide provides step-by-step instructions for deploying Apache Cassandra 4.0 on the AWS Cloud.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -888,13 +888,13 @@ collaborated with AWS on the content of the Quick Start.
 <p>Cassandra is an open-source, scalable, active-everywhere NoSQL database used by the internet’s largest applications. Cassandra is the only NoSQL database with a masterless architecture enabling zero downtime, zero lock-in, and global scale for data sovereignty.</p>
 </div>
 <div class="paragraph">
-<p>Apache Cassandra for AWS gives users and enterprises a deployment process based on cloud best practices to quickly install an Cassandra cluster on AWS in a single Region across multiple zones.</p>
+<p>Cassandra for AWS gives users and enterprises a deployment process based on cloud best practices to quickly install an Cassandra cluster on AWS in a single Region across multiple zones.</p>
 </div>
 <div class="paragraph">
 <p>Each cluster also includes a virtual machine (VM) that provides a complete set of development resources, including code examples, documentation, and data integration tools.</p>
 </div>
 <div class="paragraph">
-<p>Optionally, DataStax Luna provides subscription-based support for open-source Cassandra on AWS. DataStax Luna subscribers get the benefits of open-source software and direct access to the engineers who authored the majority of Cassandra code and provide support for some of the largest Cassandra deployments.</p>
+<p>Optionally, DataStax Luna provides subscription-based support for open-source Cassandra on AWS. DataStax Luna subscribers get the benefits of open-source software and direct access to the engineers who authored most of Cassandra&#8217;s code and provide support for some of the largest Cassandra deployments.</p>
 </div>
 <div class="paragraph">
 <p>For details about Cassandra support, see <a href="https://luna.datastax.com./">DataStax Luna</a>.</p>
@@ -939,7 +939,7 @@ After you deploy the Quick Start, enable the <a href="https://docs.aws.amazon.co
 <p>The AWS CloudFormation template for this Quick Start includes configuration parameters that you can customize. Some of these settings, such as instance type, affect the cost of deployment. For cost estimates, see the pricing pages for each AWS service used in the Quick Start.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start includes Apache Cassandra 4.0-beta1.</p>
+<p>This Quick Start includes Apache Cassandra 4.0.</p>
 </div>
 </div>
 </div>
@@ -976,7 +976,7 @@ AWS Cloud.</p>
 <p>Managed network address translation (NAT) gateways to allow outbound internet access for resources in the private subnets.*</p>
 </li>
 <li>
-<p>A DevOps jump host node where you can use tools to help manage the cluster.</p>
+<p>A DevOps instance where you can use tools to help manage the cluster.</p>
 </li>
 </ul>
 </div>
@@ -998,7 +998,7 @@ AWS Cloud.</p>
 </div>
 </li>
 <li>
-<p>An Amazon Simple Storage Service (Amazon S3) bucket for storing the CloudFormation templates and scripts.</p>
+<p>An Amazon Simple Storage Service (Amazon S3) bucket for storing the AWS CloudFormation templates and scripts.</p>
 </li>
 </ul>
 </div>
@@ -1023,7 +1023,7 @@ Cloud.</p>
 </div>
 <div class="paragraph">
 <p>This deployment guide also requires a moderate level of familiarity with
-AWS services. If you’re new to AWS, visit the
+AWS services. To help understand these services, visit the
 <a href="https://aws.amazon.com/getting-started/">Getting Started Resource Center</a>
 and the <a href="https://aws.amazon.com/training/">AWS Training and Certification
 website</a>. These sites provide materials for learning how to design,
@@ -1031,7 +1031,7 @@ deploy, and operate your infrastructure and applications on the AWS
 Cloud.</p>
 </div>
 <div class="paragraph">
-<p>Additional sites:</p>
+<p>Additional documentation:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1047,14 +1047,7 @@ Cloud.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>We also recommend that you become familiar with the features and configuration of Apache Cassandra.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://cassandra.apache.org/doc/latest/new/index.html">Apache Cassandra documentation</a></p>
-</li>
-</ul>
+<p>You can also review the <a href="https://cassandra.apache.org/doc/latest/new/index.html">Apache Cassandra documentation</a> to become familiar with Cassandra features and configuration.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1090,27 +1083,11 @@ Cloud.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">VPCs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Elastic IP addresses</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Identity and Access Management (IAM) security groups</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IAM roles</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Auto Scaling groups</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;type&gt; instances</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;n&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
 </tr>
 </tbody>
 </table>
@@ -1120,10 +1097,79 @@ Cloud.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>us-east-1 (N. Virginia)</em> (EXAMPLE)</p>
+<p>us-east-2 	US East (Ohio)</p>
 </li>
 <li>
-<p><em>us-east-2 (Ohio)</em> (EXAMPLE)</p>
+<p>us-east-1 	US East (N. Virginia)</p>
+</li>
+<li>
+<p>us-west-1 	US West (N. California)</p>
+</li>
+<li>
+<p>us-west-2 	US West (Oregon)</p>
+</li>
+<li>
+<p>af-south-1 	Africa (Cape Town)</p>
+</li>
+<li>
+<p>ap-east-1 	Asia Pacific (Hong Kong)</p>
+</li>
+<li>
+<p>ap-south-1 	Asia Pacific (Mumbai)</p>
+</li>
+<li>
+<p>ap-northeast-3 	Asia Pacific (Osaka-Local)</p>
+</li>
+<li>
+<p>ap-northeast-2 	Asia Pacific (Seoul)</p>
+</li>
+<li>
+<p>ap-southeast-1 	Asia Pacific (Singapore)</p>
+</li>
+<li>
+<p>ap-southeast-2 	Asia Pacific (Sydney)</p>
+</li>
+<li>
+<p>ap-northeast-1 	Asia Pacific (Tokyo)</p>
+</li>
+<li>
+<p>ca-central-1 	Canada (Central)</p>
+</li>
+<li>
+<p>eu-central-1 	Europe (Frankfurt)</p>
+</li>
+<li>
+<p>eu-west-1 	Europe (Ireland)</p>
+</li>
+<li>
+<p>eu-west-2 	Europe (London)</p>
+</li>
+<li>
+<p>eu-south-1 	Europe (Milan)</p>
+</li>
+<li>
+<p>eu-west-3 	Europe (Paris)</p>
+</li>
+<li>
+<p>eu-north-1 	Europe (Stockholm)</p>
+</li>
+<li>
+<p>me-south-1 	Middle East (Bahrain)</p>
+</li>
+<li>
+<p>sa-east-1 	South America (São Paulo)</p>
+</li>
+<li>
+<p>us-gov-west-1 AWS GovCloud (US-West)</p>
+</li>
+<li>
+<p>us-gov-east-1 AWS GovCloud (US-East)</p>
+</li>
+<li>
+<p>cn-north-1 China (Beijing)</p>
+</li>
+<li>
+<p>cn-northwest-1 China (Ningxia)</p>
 </li>
 </ul>
 </div>
@@ -1138,15 +1184,6 @@ Certain Regions are available on an opt-in basis. See <a href="https://docs.aws.
 </td>
 </tr>
 </table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_ec2_key_pairs">EC2 key pairs</h4>
-<div class="paragraph">
-<p>Make sure that at least one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" target="_blank" rel="noopener">Amazon EC2 key pair</a> exists in your AWS account in the Region where you plan to deploy the Quick Start. Make note of the key pair name. You need it during deployment. To create a key pair, follow the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" target="_blank" rel="noopener">instructions in the AWS documentation</a>.</p>
-</div>
-<div class="paragraph">
-<p>For testing or proof-of-concept purposes, we recommend creating a new key pair instead of using one that’s already being used by a production instance.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1241,7 +1278,7 @@ Linux, we use the key pair to authenticate SSH login.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Deploy Apache Cassandra into a new VPC (end-to-end deployment)</strong>. This option builds a new AWS environment consisting of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys Apache Cassandra into this new VPC.</p>
+<p><strong>Deploy Apache Cassandra into a new VPC</strong>. This option builds a new AWS environment consisting of the VPC, subnets, NAT gateways, security groups, bastion hosts, and other infrastructure components. It then deploys Apache Cassandra into this new VPC.</p>
 </li>
 <li>
 <p><strong>Deploy Apache Cassandra into an existing VPC</strong>. This option provisions Apache Cassandra in your existing AWS infrastructure.</p>
@@ -1263,7 +1300,7 @@ Linux, we use the key pair to authenticate SSH login.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an IAM user role that has the necessary permissions. For details, see <a href="#_planning_the_deployment">Planning the deployment</a> earlier in this guide.</p>
+<p>Sign in to your AWS account at <a href="https://aws.amazon.com" class="bare">https://aws.amazon.com</a> with an AWS Identity and Access Management (IAM) user role that has the necessary permissions. For details, see <a href="#_planning_the_deployment">Planning the deployment</a> earlier in this guide.</p>
 </li>
 <li>
 <p>Make sure that your AWS account is configured correctly, as discussed in the <a href="#_technical_requirements">Technical requirements</a> section.</p>
@@ -1298,10 +1335,10 @@ You are responsible for the cost of the AWS services used while running this Qui
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://qs_launch_link" target="_blank" rel="noopener">Deploy Apache Cassandra into a new VPC on AWS</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/DWjgJ" target="_blank" rel="noopener">Deploy Apache Cassandra into a new VPC on AWS</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://qs_launch_link" target="_blank" rel="noopener">Deploy Apache Cassandra into an existing VPC on AWS</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fwd.aws/dNAeQ" target="_blank" rel="noopener">Deploy Apache Cassandra into an existing VPC on AWS</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1312,13 +1349,13 @@ You are responsible for the cost of the AWS services used while running this Qui
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you’re deploying Apache Cassandra into an existing VPC, make sure that your VPC has two private subnets in different Availability Zones for the workload instances, and that the subnets aren’t shared. This Quick Start doesn’t support <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html" target="_blank" rel="noopener">shared subnets</a>. These subnets require <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html" target="_blank" rel="noopener">NAT gateways</a> in their route tables, to allow the instances to download packages and software without exposing them to the internet.
+If you’re deploying Apache Cassandra into an existing VPC, make sure that your VPC has two private subnets in different Availability Zones for the workload instances, and that the subnets aren’t shared. This Quick Start doesn’t support <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html" target="_blank" rel="noopener">shared subnets</a>. These subnets require <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html" target="_blank" rel="noopener">NAT gateways</a> in their route tables to allow the instances to download packages and software without exposing them to the internet.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Also, make sure that the domain name option in the DHCP options is configured as explained in the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html" target="_blank" rel="noopener">Amazon VPC documentation</a>. You provide your VPC settings when you launch the Quick Start.</p>
+<p>Also, make sure that the domain name option in the Dynamic Host Configuration Protocol (DHCP) options is configured as explained in the Amazon VPC documentation. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html" target="_blank" rel="noopener">DHCP options sets</a>. You provide your VPC settings when you launch the Quick Start.</p>
 </div>
 <div class="paragraph">
 <p>Each deployment takes about 15-20 minutes to complete.</p>
@@ -1326,7 +1363,7 @@ If you’re deploying Apache Cassandra into an existing VPC, make sure that your
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Check the AWS Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This is where the network infrastructure for Apache Cassandra will be built. The template is launched in the us-east-1 Region by default.</p>
+<p>Check the AWS Region that’s displayed in the upper-right corner of the navigation bar, and change it if necessary. This Region is where the network infrastructure for Apache Cassandra is built. The template is launched in the us-east-1 Region by default.</p>
 </li>
 </ol>
 </div>
@@ -1358,86 +1395,9 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </div>
 </div>
 <div class="sect2">
-<h3 id="_parameters_for_launching_to_a_new_vpc">Parameters for launching to a new VPC</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>VPC Network Configuration</p>
-</li>
-</ol>
-</div>
+<h3 id="_parameters_for_launching_into_an_existing_vpc">Parameters for launching into an existing VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7038%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter label (name)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default value</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Availability Zones
-(<code>AvailabilityZones</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select 3 AZs from this List of Availability Zones to use for the subnets in the VPC. The logical order of your selections is preserved.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC CIDR
-(<code>VPCCIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/16</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the VPC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1 CIDR
-(<code>PrivateSubnet1CIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/19</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 1 located in Availability Zone 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2 CIDR
-(<code>PrivateSubnet2CIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.32.0/19</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 2 located in Availability Zone 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 3 CIDR
-(<code>PrivateSubnet3CIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.64.0/19</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 3 located in Availability Zone 3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 CIDR
-(<code>PublicSubnet1CIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.128.0/20</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the public (DMZ) subnet 1 located in Availability Zone 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 2 CIDR
-(<code>PublicSubnet2CIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.144.0/20</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the public (DMZ) subnet 2 located in Availability Zone 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 3 CIDR
-(<code>PublicSubnet3CIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.160.0/20</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the public (DMZ) subnet 3 located in Availability Zone 3</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Cassandra Cluster/Nodes Configuration</caption>
+<caption class="title">Table 1. VPC network configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1452,45 +1412,110 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Apache Cassandra version to install.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Existing ID of the VPC
+(<code>VPCID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of existing VPC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC CIDR
+(<code>VPCCIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/16</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the VPC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1 ID
+(<code>PrivateSubnet1ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet ID 1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2 ID
+(<code>PrivateSubnet2ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet ID 2.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2 ID
+(<code>PrivateSubnet3ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet ID 3.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 ID
+(<code>PublicSubnet1ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet ID 1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 2 ID
+(<code>PublicSubnet2ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet ID 2.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 3 ID
+(<code>PublicSubnet3ID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet ID 3.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Cassandra cluster/nodes configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apache Cassandra version to install
 (<code>OSSVersion</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>4.0</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Apache Cassandra version to install.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose from "1 - 32" for number of cassandra nodes to install.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose from "1 - 32" for number of Cassandra nodes to install
 (<code>ClusterSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number of Cassandra nodes to create.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Apache Cassandra cluster.
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Cassandra cluster
 (<code>ClusterName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Cassandra-Cluster</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Cassandra Cluster.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the cluster.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Apache Cassandra data center.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Cassandra data center
 (<code>DatacenterName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>OSS-dc0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Cassandra Datacenter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the data center.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type for Apache Cassandra nodes.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for Cassandra nodes
 (<code>NodeInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>m4.large</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type of each node in the Cassandra Cluster</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type of each node in the Cassandra cluster.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EBS volume size of the Apache Cassandra Cluster Nodes in GB.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EBS volume size of the Cassandra cluster nodes in GB
 (<code>NodeVolumeSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>512</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EBS volume size of each node in the Cassandra Cluster in GB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EBS volume size of each node in the Cassandra cluster in GB.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Cassandra Cluster Access</caption>
+<caption class="title">Table 3. Cassandra cluster access</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1505,27 +1530,27 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create the Apache Cassandra Cluster nodes in public subnet.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create the Cassandra cluster nodes in public subnet
 (<code>CreateClusterWithPublicIP</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the Cassandra Cluster nodes in public subnet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the Cassandra cluster nodes in the public subnet.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Permitted CIDR block for remote access.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Permitted CIDR block for remote access
 (<code>RemoteAccessCIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed CIDR block for external SSH access and for application access to the cassandra cluster, if the cluster is created with CreateClusterWithPublicIP=true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed CIDR block for external SSH access and for application access to the cluster if the cluster is created with CreateClusterWithPublicIP=true.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Key Pair
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS key pair
 (<code>KeyPairName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select an existing KeyPair.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select an existing key pair.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. DevOps/Bastion Configuration</caption>
+<caption class="title">Table 4. DevOps/bastion configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1540,27 +1565,27 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the jumpbox.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the jump box
 (<code>CreateDevInstance</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the jumpbox</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose whether to create the jump box.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type for the DevOps/Bastion Host.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for the DevOps/bastion host
 (<code>DevInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.medium</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type of the DevOps Instance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type of the DevOps instance.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The EBS volume size, in GiB, for the DevOps Host.
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Amazon EBS volume size in GB for the DevOps host
 (<code>DevVolumeSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>16</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EBS volume size of the DevOps Instance in GB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EBS volume size of the DevOps instance in GB.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. AWS Quick Start Configuration</caption>
+<caption class="title">Table 5. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1575,13 +1600,13 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket where the templates are stored.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 bucket where the templates are stored
 (<code>S3BucketName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 Key Prefix
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 key prefix
 (<code>S3KeyPrefix</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-datastax-oss</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).</p></td>
@@ -1590,86 +1615,9 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </table>
 </div>
 <div class="sect2">
-<h3 id="_parameters_for_launching_to_an_existing_vpc">Parameters for launching to an existing VPC</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>VPC Network Configuration</p>
-</li>
-</ol>
-</div>
+<h3 id="_parameters_for_launching_into_a_new_vpc">Parameters for launching into a new VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7037%;">
-<col style="width: 3.7038%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter label (name)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default value</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Existing ID of the VPC
-(<code>VPCID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Id of existing VPC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VPC CIDR
-(<code>VPCCIDR</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/16</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the VPC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NO_LABEL</strong>
-(<code>PrivateSubnet1ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet id 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NO_LABEL</strong>
-(<code>PrivateSubnet2ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet id 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NO_LABEL</strong>
-(<code>PrivateSubnet3ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet id 3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NO_LABEL</strong>
-(<code>PublicSubnet1ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet id 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NO_LABEL</strong>
-(<code>PublicSubnet2ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet id 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NO_LABEL</strong>
-(<code>PublicSubnet3ID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet id 3</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Cassandra Cluster/Nodes Configuration</caption>
+<caption class="title">Table 6. VPC network configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1684,45 +1632,110 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Apache Cassandra version to install.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Availability Zones
+(<code>AvailabilityZones</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select 3 Availability Zones from this list to use for the subnets in the VPC. The logical order of your selections is preserved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC CIDR
+(<code>VPCCIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/16</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the VPC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1 CIDR
+(<code>PrivateSubnet1CIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/19</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 1 located in Availability Zone 1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2 CIDR
+(<code>PrivateSubnet2CIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.32.0/19</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 2 located in Availability Zone 2.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 3 CIDR
+(<code>PrivateSubnet3CIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.64.0/19</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 3 located in Availability Zone 3.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 CIDR
+(<code>PublicSubnet1CIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.128.0/20</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the public (DMZ) subnet 1 located in Availability Zone 1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 2 CIDR
+(<code>PublicSubnet2CIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.144.0/20</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the public (DMZ) subnet 2 located in Availability Zone 2.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 3 CIDR
+(<code>PublicSubnet3CIDR</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.160.0/20</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for the public (DMZ) subnet 3 located in Availability Zone 3.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. Cassandra cluster/nodes configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apache Cassandra version to install
 (<code>OSSVersion</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>4.0</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Apache Cassandra version to install.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Choose from "1 - 32" for number of cassandra nodes to install.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose from "1 - 32" for number of Cassandra nodes to install
 (<code>ClusterSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number of Cassandra nodes to create.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Apache Cassandra cluster.
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Cassandra cluster
 (<code>ClusterName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Cassandra-Cluster</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Cluster.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Cassandra cluster.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Apache Cassandra data center.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Cassandra data center
 (<code>DatacenterName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>OSS-dc0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Datacenter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the Cassandra data center.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type for Apache Cassandra nodes.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for Cassandra nodes
 (<code>NodeInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>m4.large</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type of each node in the Cassandra Cluster</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type of each node in the Cassandra cluster.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EBS volume size of the Apache Cassandra Cluster Nodes in GB.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EBS volume size of the Cassandra cluster nodes in GB
 (<code>NodeVolumeSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>512</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EBS volume size of each node in the Cassandra Cluster in GB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EBS volume size of each node in the Cassandra cluster in GB.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Cassandra Cluster Access</caption>
+<caption class="title">Table 8. Cassandra cluster access</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1737,27 +1750,27 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create the Apache Cassandra Cluster nodes in public subnet.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create the Cassandra cluster nodes in public subnet
 (<code>CreateClusterWithPublicIP</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the Cassandra Cluster nodes in public subnet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the Cassandra cluster nodes in public subnet.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Permitted CIDR block for remote access.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Permitted CIDR block for remote access
 (<code>RemoteAccessCIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed CIDR block for external SSH access and for application access to the cluster if the cluster is created with CreateClusterWithPublicIP=true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed CIDR block for external SSH access and for application access to the Cassandra cluster, if the cluster is created with CreateClusterWithPublicIP=true</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Key Pair
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS key pair
 (<code>KeyPairName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select an existing KeyPair.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select an existing key pair.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. DevOps/Bastion Configuration</caption>
+<caption class="title">Table 9. DevOps/bastion configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1772,27 +1785,27 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the jumpbox.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the jump box
 (<code>CreateDevInstance</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to create the jumpbox</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines whether to create the jump box.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type for the DevOps/Bastion Host.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for the DevOps/bastion host
 (<code>DevInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>t3.medium</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type of the DevOps Instance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type of the DevOps instance.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The EBS volume size, in GiB, for the DevOps Host.
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Amazon EBS volume size in GB for the DevOps host
 (<code>DevVolumeSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>16</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EBS volume size of the DevOps Instance in GB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EBS volume size of the DevOps instance in GB.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. AWS Quick Start Configuration</caption>
+<caption class="title">Table 10. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1807,13 +1820,13 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket where the templates are stored.
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket where the templates are stored
 (<code>S3BucketName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 Key Prefix
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix
 (<code>S3KeyPrefix</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-datastax-oss</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).</p></td>
@@ -1852,8 +1865,8 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <h2 id="_post_deployment_steps">Post deployment steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Apache Cassandra backs up data by taking a snapshot of all on-disk data files (SSTable files) stored in the data directory. You can take a snapshot of all keyspaces, a single keyspace, or a single table while the system is online. See <a href="https://cassandra.apache.org/doc/latest/operating/backups.html"><em>Backing up and Restoring data</em></a>.
-For storing the backups in AWS S3, see <a href="https://aws.amazon.com/getting-started/tutorials/backup-to-s3-cli/"><em>Backup to S3</em></a></p>
+<p>Cassandra backs up data by taking a snapshot of all on-disk data files (SSTable files) stored in the data directory. You can take a snapshot of all keyspaces, a single keyspace, or a single table while the system is online. For more information about backing up and storing data, see <a href="https://cassandra.apache.org/doc/latest/operating/backups.html" target="_blank" rel="noopener">Backups</a> on the Cassandra documentation website.
+For information about storing backups in Amazon S3, see <a href="https://aws.amazon.com/getting-started/tutorials/backup-to-s3-cli/" target="_blank" rel="noopener">Batch upload files to the cloud</a>.</p>
 </div>
 </div>
 </div>
@@ -1861,10 +1874,17 @@ For storing the backups in AWS S3, see <a href="https://aws.amazon.com/getting-s
 <h2 id="_best_practices_for_using_apache_cassandra_on_aws">Best practices for using Apache Cassandra on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Data Modelling in Apache Cassandra, see <a href="https://www.datastax.com/resources/whitepaper/data-modeling-apache-cassandra">Data Modeling - Apache Cassandra</a></p>
+<p>See the following resources:</p>
 </div>
-<div class="paragraph">
-<p>Developing applications with DataStax drivers, see <a href="https://docs.datastax.com/en/devapp/doc/devapp/driversBestPractices.html">Best practices for DataStax drivers</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.datastax.com/resources/whitepaper/data-modeling-apache-cassandra" target="_blank" rel="noopener">Data Modeling in Apache Cassandra</a></p>
+</li>
+<li>
+<p><a href="https://docs.datastax.com/en/devapp/doc/devapp/driversBestPractices.html" target="_blank" rel="noopener">Best practices for DataStax drivers</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1878,15 +1898,15 @@ For storing the backups in AWS S3, see <a href="https://aws.amazon.com/getting-s
 <ul>
 <li>
 <p>AWS CloudFormation
-<a href="https://aws.amazon.com/documentation/cloudformation/"><em>https://aws.amazon.com/documentation/cloudformation/</em></a></p>
+<a href="https://aws.amazon.com/documentation/cloudformation/" target="_blank" rel="noopener">AWS CloudFormation Documentation</a></p>
 </li>
 <li>
 <p>Amazon EC2
-<a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/"><em>https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/</em></a></p>
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/" target="_blank" rel="noopener">What is Amazon EC2?</a></p>
 </li>
 <li>
 <p>Amazon VPC
-<a href="https://aws.amazon.com/documentation/vpc/"><em>https://aws.amazon.com/documentation/vpc/</em></a></p>
+<a href="https://aws.amazon.com/documentation/vpc/" target="_blank" rel="noopener">Amazon Virtual Private Cloud Documentation</a></p>
 </li>
 </ul>
 </div>
@@ -1896,25 +1916,18 @@ For storing the backups in AWS S3, see <a href="https://aws.amazon.com/getting-s
 <div class="ulist">
 <ul>
 <li>
-<p>Apache Cassandra documentation
-<a href="https://cassandra.apache.org/doc/latest/new/index.html"><em>https://cassandra.apache.org/doc/latest/new/index.html</em></a></p>
+<p><a href="https://cassandra.apache.org/doc/latest/new/index.html" target="_blank" rel="noopener">Apache Cassandra documentation</a></p>
 </li>
 <li>
-<p>DataStax Academy online courses and tutorials
-<a href="https://academy.datastax.com/"><em>https://academy.datastax.com/</em></a></p>
+<p><a href="https://academy.datastax.com/" target="_blank" rel="noopener">DataStax Academy online courses and tutorials</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p><strong>Quick Start reference deployments</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>AWS Quick Start home page
-<a href="https://aws.amazon.com/quickstart/">https://aws.amazon.com/quickstart/</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p><a href="https://aws.amazon.com/quickstart/" target="_blank" rel="noopener">AWS Quick Start home page</a></p>
 </div>
 </div>
 </div>
@@ -1925,7 +1938,7 @@ For storing the backups in AWS S3, see <a href="https://aws.amazon.com/getting-s
 <p><strong>Q.</strong> I encountered a <strong>CREATE_FAILED</strong> error when I launched the Quick Start.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, we recommend that you relaunch the template with <strong>Rollback on failure</strong> set to <strong>No</strong>. (This setting is under <strong>Advanced</strong> in the AWS CloudFormation console, <strong>Options</strong> page.) With this setting, the stack’s state is retained and the instance is left running, so you can troubleshoot the issue. (For Windows, look at the log files in %ProgramFiles%\Amazon\EC2ConfigService and C:\cfn\log.)</p>
+<p><strong>A.</strong> If AWS CloudFormation fails to create the stack, relaunch the template with <strong>Rollback on failure</strong> set to <strong>No</strong>. This setting is under <strong>Advanced</strong> in the AWS CloudFormation console on the <strong>Options</strong> page. With this setting, the stack’s state is retained and the instance is left running, so you can troubleshoot the issue. (For Windows, look at the log files in %ProgramFiles%\Amazon\EC2ConfigService and C:\cfn\log.)</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1934,7 +1947,7 @@ For storing the backups in AWS S3, see <a href="https://aws.amazon.com/getting-s
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, you continue to incur AWS charges for this stack. Please make sure to delete the stack when you finish troubleshooting.
+When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, you continue to incur AWS charges for this stack. Make sure to delete the stack when you finish troubleshooting.
 </td>
 </tr>
 </table>
@@ -1946,7 +1959,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <p><strong>Q.</strong> I encountered a size limitation error when I deployed the AWS CloudFormation templates.</p>
 </div>
 <div class="paragraph">
-<p><strong>A.</strong> We recommend that you launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a location other than an S3 bucket, you might encounter template size limitations. For more information about AWS CloudFormation quotas, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html" target="_blank" rel="noopener">AWS documentation</a>.</p>
+<p><strong>A.</strong> Launch the Quick Start templates from the links in this guide or from another Amazon S3 bucket. If you deploy the templates from a local copy on your computer or from a location other than an S3 bucket, you might encounter template size limitations. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html" target="_blank" rel="noopener">AWS CloudFormation quotas</a>.</p>
 </div>
 </div>
 </div>
@@ -1954,7 +1967,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <h2 id="_send_us_feedback">Send us feedback</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To post feedback, submit feature ideas, or report bugs, use the <strong>Issues</strong> section of the <a href="https://github.com/aws-quickstart/quickstart-documentation-base" target="_blank" rel="noopener">GitHub repository</a> for this Quick Start. If you’d like to submit code, please review the <a href="https://aws-quickstart.github.io/" target="_blank" rel="noopener">Quick Start Contributor’s Guide</a>.</p>
+<p>To post feedback, submit feature ideas, or report bugs, use the <strong>Issues</strong> section of the <a href="https://github.com/aws-quickstart/quickstart-datastax-oss" target="_blank" rel="noopener">GitHub repository</a> for this Quick Start. If you’d like to submit code, please review the <a href="https://aws-quickstart.github.io/" target="_blank" rel="noopener">Quick Start Contributor’s Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -1970,7 +1983,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <h2 id="_github_repository">GitHub repository</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can visit our <a href="https://github.com/aws-quickstart/quickstart-documentation-base" target="_blank" rel="noopener">GitHub repository</a> to download
+<p>You can visit our <a href="https://github.com/aws-quickstart/quickstart-datastax-oss" target="_blank" rel="noopener">GitHub repository</a> to download
 the templates and scripts for this Quick Start, to post your comments,
 and to share your customizations with others.</p>
 </div>
